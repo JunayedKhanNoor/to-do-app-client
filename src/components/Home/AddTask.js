@@ -33,7 +33,7 @@ const AddTask = ({ refetch }) => {
       .then((data) => {
         if (data.success) {
           refetch();
-          toast.success(`${data?.name}, Task added successfully `);
+          toast.success(`Your Task added successfully `);
         } else {
           toast.error(`Failed to add task: ${data?.name}`);
         }
