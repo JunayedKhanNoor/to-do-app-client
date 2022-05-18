@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import Loading from "../Loading/Loading";
 
-const AddTask = () => {
+const AddTask = ({ refetch }) => {
   const [user, loading] = useAuthState(auth);
   const {
     register,
@@ -14,7 +14,7 @@ const AddTask = () => {
     reset,
   } = useForm();
   if (loading) {
-      return<Loading></Loading>;
+    return <Loading></Loading>;
   }
   const onSubmit = (data) => {
     const task = {
@@ -31,8 +31,8 @@ const AddTask = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-          
         if (data.success) {
+          refetch();
           toast.success(`${data.name}, task added successfully `);
         } else {
           toast.error(`Failed to add task: ${data.name}`);
@@ -42,7 +42,6 @@ const AddTask = () => {
   };
   return (
     <>
-      
       <div className="flex justify-center">
         <div className="card w-full md:max-w-md bg-base-100 shadow-xl">
           <div className="card-body">

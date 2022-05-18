@@ -19,11 +19,11 @@ const Login = () => {
     return <Loading></Loading>;
   }
   return (
-    <div class="hero min-h-screen bg-base-200">
-      <div class="hero-content text-center">
-        <div class="max-w-md">
-          <h1 class="text-2xl font-bold">Hello there, welcome to your task management system</h1>
-          <p class="py-6">
+    <div className="hero min-h-screen bg-base-200">
+      <div className="hero-content text-center">
+        <div className="max-w-md">
+          <h1 className="text-2xl font-bold">Hello there, welcome to your task management system</h1>
+          <p className="py-6">
            Please SignIn before getting start.
           </p>
           <button onClick={() => signInWithGoogle()} className="btn btn-success">

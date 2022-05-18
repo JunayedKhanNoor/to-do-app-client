@@ -1,7 +1,7 @@
 import React from "react";
 import { toast } from "react-toastify";
 
-const Task = ({ task, refetch }) => {
+const CompletedTask = ({ task, refetch }) => {
   const handleDelete = () => {
     fetch(`http://localhost:5000/task/${task._id}`, {
       method: "DELETE",
@@ -32,7 +32,7 @@ const Task = ({ task, refetch }) => {
   };
   return (
     <>
-      {task.status !== "done" && (
+      {task.status === "done" && (
         <div className="card lg:max-w-lg bg-base-100 shadow-xl">
           <div className="card-body">
             <div className="card-actions justify-between">
@@ -59,8 +59,8 @@ const Task = ({ task, refetch }) => {
                 </svg>
               </button>
             </div>
-            <h1 className="text-xl font-bold text-success">{task.name}</h1>
-            <p>{task.description}</p>
+            <h1 className="text-xl font-bold text-success line-through">{task.name}</h1>
+            <p className="line-through">{task.description}</p>
           </div>
         </div>
       )}
@@ -68,4 +68,4 @@ const Task = ({ task, refetch }) => {
   );
 };
 
-export default Task;
+export default CompletedTask;
