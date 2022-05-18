@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 const CompletedTask = ({ task, refetch }) => {
   const handleDelete = () => {
-    fetch(`http://localhost:5000/task/${task._id}`, {
+    fetch(`https://stormy-mesa-77384.herokuapp.com/task/${task._id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -15,7 +15,7 @@ const CompletedTask = ({ task, refetch }) => {
       });
   };
   const makeComplete = () => {
-    fetch(`http://localhost:5000/task/complete/${task._id}`, {
+    fetch(`https://stormy-mesa-77384.herokuapp.com/task/complete/${task._id}`, {
       method: "PUT",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

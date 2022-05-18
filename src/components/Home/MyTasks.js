@@ -14,7 +14,7 @@ const MyTasks = () => {
     isLoading,
     refetch,
   } = useQuery(["myTask", user], () =>
-    fetch(`http://localhost:5000/task/${user.email}`).then((res) => res.json())
+    fetch(`https://stormy-mesa-77384.herokuapp.com/task/${user.email}`).then((res) => res.json())
   );
   if (isLoading || loading) {
     return <Loading></Loading>;

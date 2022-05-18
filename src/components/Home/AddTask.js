@@ -22,7 +22,7 @@ const AddTask = ({ refetch }) => {
       description: data.description,
       email: user.email,
     };
-    fetch("http://localhost:5000/task", {
+    fetch("https://stormy-mesa-77384.herokuapp.com/task", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
